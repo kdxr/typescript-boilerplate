@@ -1,0 +1,27 @@
+{
+	"name": "kdxr_typescript_boilerplate",
+	"version": "1.0.0",
+	"description": "boilerplate typescript for fivem",
+	"author": "kdxr",
+	"scripts": {
+		"init": "npm i javascript-obfuscator -g",
+		"build": "npm run clearbuild && npm run typecheck && node build/build-bundle.js && npm run obfuscator",
+		"watch": "npm run clearbuild && cross-env IS_WATCH_MODE=1 node build/build-bundle.js",
+		"clearbuild": "rimraf ./dist",
+		"typecheck": "tsc --noEmit -p client/tsconfig.json && tsc --noEmit -p server/tsconfig.json",
+		"obfuscator": "javascript-obfuscator ../script --output ../script"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@citizenfx/client": "latest",
+		"@citizenfx/server": "latest",
+		"discord.js": "^14.7.1"
+	},
+	"devDependencies": {
+		"@types/node": "^18.11.17",
+		"cross-env": "^7.0.3",
+		"esbuild": "^0.16.10",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.9.4"
+	}
+}
