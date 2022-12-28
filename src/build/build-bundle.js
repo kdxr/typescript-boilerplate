@@ -32,14 +32,9 @@ const buildBundle = async () => {
 			if (IS_WATCH_MODE) {
 				mergedOpts.watch = {
 					onRebuild(error) {
-						if (error)
-							console.error(
-								`[ESBuild Watch] (${targetOpts.entryPoints[0]}) Failed to rebuild bundle`
-							);
-						else
-							console.log(
-								`[ESBuild Watch] (${targetOpts.entryPoints[0]}) Sucessfully rebuilt bundle`
-							);
+						`[ESBuild Watch] (${targetOpts.entryPoints[0]}) ${
+							error ? "Failed" : "Sucessfully"
+						} to rebuild bundle`;
 					},
 				};
 			}
